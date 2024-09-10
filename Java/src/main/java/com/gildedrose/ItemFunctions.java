@@ -7,7 +7,7 @@ public enum ItemFunctions {
 
     static ItemFunction compose(ItemFunction... functions) {
         return Arrays.stream(functions)
-            .reduce((f1, f2) -> i -> f2.apply(f1.apply(i)))
+            .reduce((f1, f2) -> f1.andThen(f2))
             .orElse(i -> i);
     }
 }
